@@ -1,17 +1,23 @@
 #include<stdio.h>
 #include<windows.h>
+#include<assert.h>
 void PaiXu_print(int *arr,int le)
 {
     int i = 0;
 	int j = 0;
-	for(;i<le;i++){
+	assert(arr);
+	for(;i<le-1;i++){
+		int flag = 0;
 		for(j=0;j<le-i-1;j++){
 			if(arr[j]>arr[j+1]){
+				 flag = 1;
                  arr[j]^=arr[j+1];
                  arr[j+1]^=arr[j];			
   				 arr[j]^=arr[j+1];			
    			}
-	    }
+		}
+       if(flag==0)
+	   break;
 	}
 	
 }
@@ -28,5 +34,4 @@ int main()
 	printf("%d",arr[i]);
 	system("pause");
 	return 0;
-	
 }
