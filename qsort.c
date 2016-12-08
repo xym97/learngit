@@ -87,15 +87,35 @@
 #include<stdlib.h>
 #include<assert.h>
 #include<string.h>
-void stringshow(arr,len)
+void floatshow(float *arr,int len)
 {
 	int i = 0;
 	for(;i<len;i++){
-        printf("%s",arr[i]);	
+	   printf("%f",arr[i]);
+	   printf("\n");
 	}
 	printf("\n");
 }
-static int stringcmp(void* x,void* y)
+static int floatcmp(const void* x,const void* y)
+{
+	assert(x);assert(y);
+	return (*(float*)x < *(float*)y)? -1:1;
+}
+void floatqsort(float* arr,int len)
+{
+	assert(arr);
+	qsort(arr,len,sizeof(float),floatcmp);
+}
+void stringshow(char* arr[],int len)
+{
+	int i = 0;
+	for(;i<len;i++){
+        printf("%s",arr[i]);
+		printf("\n");
+	}
+	printf("\n");
+}
+static int stringcmp(const void* x,const void* y)
 {
 	assert(x);assert(y);
 	return strcmp(*((char **)x),*((char **)y));
@@ -107,11 +127,16 @@ stringqsort(char *arr[],int len)
 }
 int main()
 {
-	char* arr[] = {"ddd","aaa","xxx","ggg","ppp"};
-	int len = sizeof(arr)/sizeof(arr[0]);
-	stringshow(arr,len);
-	stringqsort(arr,len);
-	stringshow(arr,len);
+	char* carr[] = {"ddd","aaa","xxx","ggg","ppp"};
+	float farr[] = {1.1,2.4,3.5,7.6,3.1,4.4};
+	int lenf = sizeof(farr)/sizeof(farr[0]);
+	int lenc = sizeof(carr)/sizeof(carr[0]);
+	floatshow(farr,lenf);
+	floatqsort(farr,lenf);
+	floatshow(farr,lenf);
+ 	stringshow(carr,lenc);
+	stringqsort(carr,lenc);
+	stringshow(carr,lenc);
 	system("pause");
 	return 0;
 }
