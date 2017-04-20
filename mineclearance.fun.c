@@ -89,7 +89,7 @@ void display_board(char show[ROWS+2][COLS+2],char mine[ROWS+2][COLS+2],int x,int
 	  }
          printf("\n");
    }
- /*  for(i=1;i<11;i++)
+   for(i=1;i<11;i++)
      printf("%4d",i);
      printf("\n");
       for(i=1;i<=ROWS;i++)
@@ -102,7 +102,7 @@ void display_board(char show[ROWS+2][COLS+2],char mine[ROWS+2][COLS+2],int x,int
          
        }
           printf("\n");
-	  }*/
+	 }
 }
 
 void detect_mines(char mine[ROWS+2][COLS+2],char show[ROWS+2][COLS+2],int x,int y)
@@ -114,6 +114,20 @@ void detect_mines(char mine[ROWS+2][COLS+2],char show[ROWS+2][COLS+2],int x,int 
     scanf("%d %d",&a,&b);
 	if(mine[a][b] == '!');
 	printf("Game over.");
+    /*for(i=1;i<11;i++)
+     printf("%4d",i);
+     printf("\n");
+      for(i=1;i<=ROWS;i++)
+     {
+	  printf("%d",i);
+      for(j=1;j<=COLS;j++)
+	   {  
+	     
+		  printf("%4c",mine[i][j]);
+         
+       }
+          printf("\n");*/
+	  
 	if(mine[a][b] != '!');
 	{
        if(mine[a-1][b-1] == '!')

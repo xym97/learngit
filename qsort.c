@@ -127,7 +127,7 @@ stringqsort(char *arr[],int len)
 }
 int main()
 {
-	char* carr[] = {"ddd","aaa","xxx","ggg","ppp"};
+	char* carr[] = {"dad","afa","xxx","ggg","ppp"};
 	float farr[] = {1.1,2.4,3.5,7.6,3.1,4.4};
 	int lenf = sizeof(farr)/sizeof(farr[0]);
 	int lenc = sizeof(carr)/sizeof(carr[0]);
